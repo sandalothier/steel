@@ -1,0 +1,12 @@
+{
+  "steelApp": {
+    "SituationMatrimoniale": {
+      "null": "",
+      "MARIE": "MARIE",
+      "CELIBATAIRE": "CELIBATAIRE",
+      "CONCUBINAGE": "CONCUBINAGE",
+      "VEUF": "VEUF",
+      "DIVORCE": "DIVORCE"
+    }
+  }
+}

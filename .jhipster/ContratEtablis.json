@@ -1,0 +1,36 @@
+{
+  "angularJSSuffix": "steel",
+  "applications": ["steel"],
+  "changelogDate": "20221114001843",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "contrat_etablis",
+  "fields": [
+    {
+      "fieldName": "dateEtablissement",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "ContratEtablis entity.\\n@author sanda",
+  "jpaMetamodelFiltering": false,
+  "name": "ContratEtablis",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employe",
+      "ownerSide": true,
+      "relationshipName": "nomActeur",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "typeContratDeTravail",
+      "ownerSide": true,
+      "relationshipName": "intTypeContrat",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceImpl"
+}

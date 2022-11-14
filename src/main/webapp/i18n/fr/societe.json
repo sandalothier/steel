@@ -1,0 +1,31 @@
+{
+  "steelApp": {
+    "societe": {
+      "home": {
+        "title": "Societes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Societe",
+        "createOrEditLabel": "Créer ou éditer un Societe",
+        "search": "Recherche pour Societe",
+        "notFound": "Aucun Societe trouvé"
+      },
+      "created": "Un nouveau Societe a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Societe avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Societe avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Societe {{ id }} ?"
+      },
+      "detail": {
+        "title": "Societe"
+      },
+      "id": "ID",
+      "intSociete": "Int Societe",
+      "sigle": "Sigle",
+      "logo": "Logo",
+      "siege": "Siege",
+      "employe": "Employe",
+      "typeDocument": "Type Document",
+      "succursale": "Succursale"
+    }
+  }
+}

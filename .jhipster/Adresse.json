@@ -1,0 +1,37 @@
+{
+  "angularJSSuffix": "steel",
+  "applications": ["steel"],
+  "changelogDate": "20221114001643",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "adresse",
+  "fields": [
+    {
+      "fieldName": "cel",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "8"
+    },
+    {
+      "fieldName": "tel",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "8"
+    },
+    {
+      "fieldName": "region",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Adresse entity.\\n@author sanda",
+  "jpaMetamodelFiltering": false,
+  "name": "Adresse",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "elasticsearch",
+  "service": "serviceImpl"
+}

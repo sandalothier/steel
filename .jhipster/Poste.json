@@ -1,0 +1,32 @@
+{
+  "angularJSSuffix": "steel",
+  "applications": ["steel"],
+  "changelogDate": "20221114001543",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "poste",
+  "fields": [
+    {
+      "fieldName": "intPoste",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Poste entity.\\n@author sanda",
+  "jpaMetamodelFiltering": false,
+  "name": "Poste",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employe",
+      "otherEntityRelationshipName": "poste",
+      "relationshipName": "nomActeur",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceImpl"
+}

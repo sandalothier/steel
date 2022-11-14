@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="succursale">
+      <h2 data-cy="succursaleDetailsHeading"><span jhiTranslate="steelApp.succursale.detail.title">Succursale</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ succursale.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.succursale.intSuccursale">Int Succursale</span></dt>
+        <dd>
+          <span>{{ succursale.intSuccursale }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.succursale.societe">Societe</span></dt>
+        <dd>
+          <div *ngIf="succursale.societe">
+            <a [routerLink]="['/societe-steel', succursale.societe.id, 'view']">{{ succursale.societe?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/succursale-steel', succursale.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

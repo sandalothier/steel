@@ -1,0 +1,29 @@
+{
+  "angularJSSuffix": "steel",
+  "applications": ["steel"],
+  "changelogDate": "20221114001443",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "diplome",
+  "fields": [
+    {
+      "fieldName": "codeDiplome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "intDiplome",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Diplome entity.\\n@author sanda",
+  "jpaMetamodelFiltering": false,
+  "name": "Diplome",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "elasticsearch",
+  "service": "serviceImpl"
+}

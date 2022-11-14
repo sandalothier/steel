@@ -1,0 +1,32 @@
+{
+  "angularJSSuffix": "steel",
+  "applications": ["steel"],
+  "changelogDate": "20221114001343",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "succursale",
+  "fields": [
+    {
+      "fieldName": "intSuccursale",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Succursale entity.\\n@author sanda",
+  "jpaMetamodelFiltering": false,
+  "name": "Succursale",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "societe",
+      "otherEntityRelationshipName": "succursale",
+      "relationshipName": "societe",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceImpl"
+}

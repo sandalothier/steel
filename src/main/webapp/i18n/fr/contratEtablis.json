@@ -1,0 +1,27 @@
+{
+  "steelApp": {
+    "contratEtablis": {
+      "home": {
+        "title": "ContratEtablis",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Contrat Etablis",
+        "createOrEditLabel": "Créer ou éditer un Contrat Etablis",
+        "search": "Recherche pour Contrat Etablis",
+        "notFound": "Aucun Contrat Etablis trouvé"
+      },
+      "created": "Un nouveau Contrat Etablis a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Contrat Etablis avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Contrat Etablis avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Contrat Etablis {{ id }} ?"
+      },
+      "detail": {
+        "title": "Contrat Etablis"
+      },
+      "id": "ID",
+      "dateEtablissement": "Date Etablissement",
+      "nomActeur": "Nom Acteur",
+      "intTypeContrat": "Int Type Contrat"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "steelApp": {
+    "contratEtablis": {
+      "home": {
+        "title": "Contrat Etablis",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Contrat Etablis",
+        "createOrEditLabel": "Create or edit a Contrat Etablis",
+        "search": "Search for Contrat Etablis",
+        "notFound": "No Contrat Etablis found"
+      },
+      "created": "A new Contrat Etablis is created with identifier {{ param }}",
+      "updated": "A Contrat Etablis is updated with identifier {{ param }}",
+      "deleted": "A Contrat Etablis is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contrat Etablis {{ id }}?"
+      },
+      "detail": {
+        "title": "Contrat Etablis"
+      },
+      "id": "ID",
+      "dateEtablissement": "Date Etablissement",
+      "nomActeur": "Nom Acteur",
+      "intTypeContrat": "Int Type Contrat"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="societe">
+      <h2 data-cy="societeDetailsHeading"><span jhiTranslate="steelApp.societe.detail.title">Societe</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ societe.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.societe.intSociete">Int Societe</span></dt>
+        <dd>
+          <span>{{ societe.intSociete }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.societe.sigle">Sigle</span></dt>
+        <dd>
+          <span>{{ societe.sigle }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.societe.logo">Logo</span></dt>
+        <dd>
+          <span>{{ societe.logo }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.societe.siege">Siege</span></dt>
+        <dd>
+          <span>{{ societe.siege }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/societe-steel', societe.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

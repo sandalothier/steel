@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="typeContratDeTravail">
+      <h2 data-cy="typeContratDeTravailDetailsHeading">
+        <span jhiTranslate="steelApp.typeContratDeTravail.detail.title">Type Contrat De Travail</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ typeContratDeTravail.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.typeContratDeTravail.intTypeContrat">Int Type Contrat</span></dt>
+        <dd>
+          <span>{{ typeContratDeTravail.intTypeContrat }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.typeContratDeTravail.description">Description</span></dt>
+        <dd>
+          <span>{{ typeContratDeTravail.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.typeContratDeTravail.dureeMax">Duree Max</span></dt>
+        <dd>
+          <span>{{ typeContratDeTravail.dureeMax }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/type-contrat-de-travail-steel', typeContratDeTravail.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

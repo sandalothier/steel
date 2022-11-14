@@ -1,0 +1,154 @@
+application {
+    config {
+    baseName steel
+    applicationType monolith 
+    serverPort 8080
+    packageName com.getset.steel
+    authenticationType jwt
+    databaseType sql
+    devDatabaseType mysql
+    prodDatabaseType mysql
+    buildTool maven
+    cacheProvider hazelcast
+    clientFramework angularX
+    clientPackageManager npm
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation true
+    nativeLanguage fr
+    languages[fr, en]
+    messageBroker kafka
+    searchEngine elasticsearch
+    serviceDiscoveryType eureka
+    testFrameworks [gatling]
+    websocket false
+    }
+    entities *
+}
+enum Sexe {
+    MASCULIN, 
+    FEMININ
+}
+enum SituationMatrimoniale {
+    MARIE, 
+    CELIBATAIRE, 
+    CONCUBINAGE,
+    VEUF, 
+    DIVORCE
+}
+/**
+ * Employe entity.
+ * @author sanda
+ * Ce sont les individus
+ * Cette table extends la table Acteur
+ */
+entity Employe {
+    sexe Sexe required,//I
+    nomActeur String required maxlength(20),
+    prenomsActeur String required maxlength(25),//I
+    dateNaissance LocalDate,//M
+    lieuNaissance String required maxlength(25) //M
+    situationMatrimoniale SituationMatrimoniale,//I
+    photo ImageBlob,
+    paysOrigine String
+}
+/**
+ * Societe entity.
+ * @author sanda
+ */
+entity Societe {
+    intSociete String required maxlength(25),
+    sigle String maxlength(25),
+    Logo String required maxlength(25),
+    siege String
+}
+/**
+ * Succursale entity.
+ * @author sanda
+ */
+entity Succursale {
+    intSuccursale String required maxlength(25)
+}
+/**
+ * Diplome entity.
+ * @author sanda
+ */
+entity Diplome {
+    codeDiplome String required maxlength(25),
+    intDiplome String
+}
+/**
+ * Poste entity.
+ * @author sanda
+ */
+entity Poste {
+    intPoste String  maxlength(25)
+}
+/**
+ * Adresse entity.
+ * @author sanda
+ */
+entity Adresse {
+    cel String required maxlength(8),
+    tel String required maxlength(8),
+    region String required maxlength(25)
+}
+/**
+ * TypeContratDeTravail entity.
+ * @author sanda
+ */
+entity TypeContratDeTravail {
+    intTypeContrat String maxlength(25),
+    Description String required maxlength(50),
+    DureeMax Integer required
+}
+/**
+ * ContratEtablis entity.
+ * @author sanda
+ */
+entity ContratEtablis {
+    dateEtablissement LocalDate
+}
+/**
+ * TypeDocument entity.
+ * @author sanda
+ */
+entity TypeDocument {
+    intTypeDoc String  maxlength(50)
+}
+/**
+ * ComposantDocument entity.
+ * @author sanda
+ */
+entity ComposantDocument {
+    intComposant String required maxlength(25),
+    titreComposant String maxlength(50),
+    contenu String 
+}
+/**
+ * One to many relationship.
+ */
+relationship OneToMany {
+    Societe to Employe
+    Societe to TypeDocument
+    Societe to Succursale
+    Employe to Poste{nomActeur}
+    TypeDocument to ComposantDocument{intTypeDoc}
+}
+/**
+ * One to one relationship.
+ */
+relationship OneToOne {
+    Employe{codeDiplome} to Diplome
+    Employe{cel} to Adresse
+    ContratEtablis{nomActeur} to Employe
+    ContratEtablis{intTypeContrat} to TypeContratDeTravail
+}
+paginate all with pagination
+// Use Data Transfert Objects (DTO)
+dto all with mapstruct
+// Set service options to all except few
+service all with serviceImpl
+search all with elasticsearch
+// Set an angular suffix
+angularSuffix all with steel

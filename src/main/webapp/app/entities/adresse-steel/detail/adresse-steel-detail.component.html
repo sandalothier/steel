@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="adresse">
+      <h2 data-cy="adresseDetailsHeading"><span jhiTranslate="steelApp.adresse.detail.title">Adresse</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ adresse.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.adresse.cel">Cel</span></dt>
+        <dd>
+          <span>{{ adresse.cel }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.adresse.tel">Tel</span></dt>
+        <dd>
+          <span>{{ adresse.tel }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.adresse.region">Region</span></dt>
+        <dd>
+          <span>{{ adresse.region }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/adresse-steel', adresse.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

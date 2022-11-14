@@ -1,0 +1,85 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="employe">
+      <h2 data-cy="employeDetailsHeading"><span jhiTranslate="steelApp.employe.detail.title">Employe</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ employe.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.employe.sexe">Sexe</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'steelApp.Sexe.' + employe.sexe }}">{{ employe.sexe }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.employe.nomActeur">Nom Acteur</span></dt>
+        <dd>
+          <span>{{ employe.nomActeur }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.employe.prenomsActeur">Prenoms Acteur</span></dt>
+        <dd>
+          <span>{{ employe.prenomsActeur }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.employe.dateNaissance">Date Naissance</span></dt>
+        <dd>
+          <span>{{ employe.dateNaissance | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.employe.lieuNaissance">Lieu Naissance</span></dt>
+        <dd>
+          <span>{{ employe.lieuNaissance }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.employe.situationMatrimoniale">Situation Matrimoniale</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'steelApp.SituationMatrimoniale.' + employe.situationMatrimoniale }}">{{
+            employe.situationMatrimoniale
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.employe.photo">Photo</span></dt>
+        <dd>
+          <div *ngIf="employe.photo">
+            <a (click)="openFile(employe.photo, employe.photoContentType)">
+              <img [src]="'data:' + employe.photoContentType + ';base64,' + employe.photo" style="max-width: 100%" alt="employe image" />
+            </a>
+            {{ employe.photoContentType }}, {{ byteSize(employe.photo) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="steelApp.employe.paysOrigine">Pays Origine</span></dt>
+        <dd>
+          <span>{{ employe.paysOrigine }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.employe.codeDiplome">Code Diplome</span></dt>
+        <dd>
+          <div *ngIf="employe.codeDiplome">
+            <a [routerLink]="['/diplome-steel', employe.codeDiplome.id, 'view']">{{ employe.codeDiplome?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="steelApp.employe.cel">Cel</span></dt>
+        <dd>
+          <div *ngIf="employe.cel">
+            <a [routerLink]="['/adresse-steel', employe.cel.id, 'view']">{{ employe.cel?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="steelApp.employe.societe">Societe</span></dt>
+        <dd>
+          <div *ngIf="employe.societe">
+            <a [routerLink]="['/societe-steel', employe.societe.id, 'view']">{{ employe.societe?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/employe-steel', employe.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

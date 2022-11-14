@@ -1,0 +1,28 @@
+{
+  "steelApp": {
+    "composantDocument": {
+      "home": {
+        "title": "ComposantDocuments",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Composant Document",
+        "createOrEditLabel": "Créer ou éditer un Composant Document",
+        "search": "Recherche pour Composant Document",
+        "notFound": "Aucun Composant Document trouvé"
+      },
+      "created": "Un nouveau Composant Document a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Composant Document avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Composant Document avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Composant Document {{ id }} ?"
+      },
+      "detail": {
+        "title": "Composant Document"
+      },
+      "id": "ID",
+      "intComposant": "Int Composant",
+      "titreComposant": "Titre Composant",
+      "contenu": "Contenu",
+      "intTypeDoc": "Int Type Doc"
+    }
+  }
+}

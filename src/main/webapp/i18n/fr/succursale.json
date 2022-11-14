@@ -1,0 +1,26 @@
+{
+  "steelApp": {
+    "succursale": {
+      "home": {
+        "title": "Succursales",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Succursale",
+        "createOrEditLabel": "Créer ou éditer un Succursale",
+        "search": "Recherche pour Succursale",
+        "notFound": "Aucun Succursale trouvé"
+      },
+      "created": "Un nouveau Succursale a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Succursale avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Succursale avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Succursale {{ id }} ?"
+      },
+      "detail": {
+        "title": "Succursale"
+      },
+      "id": "ID",
+      "intSuccursale": "Int Succursale",
+      "societe": "Societe"
+    }
+  }
+}

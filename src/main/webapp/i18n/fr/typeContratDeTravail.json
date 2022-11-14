@@ -1,0 +1,27 @@
+{
+  "steelApp": {
+    "typeContratDeTravail": {
+      "home": {
+        "title": "TypeContratDeTravails",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Type Contrat De Travail",
+        "createOrEditLabel": "Créer ou éditer un Type Contrat De Travail",
+        "search": "Recherche pour Type Contrat De Travail",
+        "notFound": "Aucun Type Contrat De Travail trouvé"
+      },
+      "created": "Un nouveau Type Contrat De Travail a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Contrat De Travail avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Contrat De Travail avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Type Contrat De Travail {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Contrat De Travail"
+      },
+      "id": "ID",
+      "intTypeContrat": "Int Type Contrat",
+      "description": "Description",
+      "dureeMax": "Duree Max"
+    }
+  }
+}

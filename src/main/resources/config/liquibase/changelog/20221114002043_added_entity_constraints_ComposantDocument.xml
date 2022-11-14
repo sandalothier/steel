@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity ComposantDocument.
+    -->
+    <changeSet id="20221114002043-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="int_type_doc_id"
+                                 baseTableName="composant_document"
+                                 constraintName="fk_composant_document__int_type_doc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_document"/>
+    </changeSet>
+</databaseChangeLog>

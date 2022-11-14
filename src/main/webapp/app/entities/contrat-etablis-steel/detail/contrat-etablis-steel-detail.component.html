@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="contratEtablis">
+      <h2 data-cy="contratEtablisDetailsHeading"><span jhiTranslate="steelApp.contratEtablis.detail.title">Contrat Etablis</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ contratEtablis.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.contratEtablis.dateEtablissement">Date Etablissement</span></dt>
+        <dd>
+          <span>{{ contratEtablis.dateEtablissement | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.contratEtablis.nomActeur">Nom Acteur</span></dt>
+        <dd>
+          <div *ngIf="contratEtablis.nomActeur">
+            <a [routerLink]="['/employe-steel', contratEtablis.nomActeur.id, 'view']">{{ contratEtablis.nomActeur?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="steelApp.contratEtablis.intTypeContrat">Int Type Contrat</span></dt>
+        <dd>
+          <div *ngIf="contratEtablis.intTypeContrat">
+            <a [routerLink]="['/type-contrat-de-travail-steel', contratEtablis.intTypeContrat.id, 'view']">{{
+              contratEtablis.intTypeContrat?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/contrat-etablis-steel', contratEtablis.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

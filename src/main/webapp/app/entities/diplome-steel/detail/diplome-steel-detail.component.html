@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="diplome">
+      <h2 data-cy="diplomeDetailsHeading"><span jhiTranslate="steelApp.diplome.detail.title">Diplome</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ diplome.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.diplome.codeDiplome">Code Diplome</span></dt>
+        <dd>
+          <span>{{ diplome.codeDiplome }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.diplome.intDiplome">Int Diplome</span></dt>
+        <dd>
+          <span>{{ diplome.intDiplome }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/diplome-steel', diplome.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

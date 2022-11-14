@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="poste">
+      <h2 data-cy="posteDetailsHeading"><span jhiTranslate="steelApp.poste.detail.title">Poste</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ poste.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.poste.intPoste">Int Poste</span></dt>
+        <dd>
+          <span>{{ poste.intPoste }}</span>
+        </dd>
+        <dt><span jhiTranslate="steelApp.poste.nomActeur">Nom Acteur</span></dt>
+        <dd>
+          <div *ngIf="poste.nomActeur">
+            <a [routerLink]="['/employe-steel', poste.nomActeur.id, 'view']">{{ poste.nomActeur?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/poste-steel', poste.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+{
+  "angularJSSuffix": "steel",
+  "applications": ["steel"],
+  "changelogDate": "20221114001743",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "type_contrat_de_travail",
+  "fields": [
+    {
+      "fieldName": "intTypeContrat",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "dureeMax",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "TypeContratDeTravail entity.\\n@author sanda",
+  "jpaMetamodelFiltering": false,
+  "name": "TypeContratDeTravail",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "elasticsearch",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,42 @@
+{
+  "angularJSSuffix": "steel",
+  "applications": ["steel"],
+  "changelogDate": "20221114002043",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "composant_document",
+  "fields": [
+    {
+      "fieldName": "intComposant",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "titreComposant",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "contenu",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "ComposantDocument entity.\\n@author sanda",
+  "jpaMetamodelFiltering": false,
+  "name": "ComposantDocument",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "typeDocument",
+      "otherEntityRelationshipName": "composantDocument",
+      "relationshipName": "intTypeDoc",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceImpl"
+}

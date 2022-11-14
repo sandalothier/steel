@@ -1,0 +1,27 @@
+{
+  "steelApp": {
+    "typeContratDeTravail": {
+      "home": {
+        "title": "Type Contrat De Travails",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Type Contrat De Travail",
+        "createOrEditLabel": "Create or edit a Type Contrat De Travail",
+        "search": "Search for Type Contrat De Travail",
+        "notFound": "No Type Contrat De Travails found"
+      },
+      "created": "A new Type Contrat De Travail is created with identifier {{ param }}",
+      "updated": "A Type Contrat De Travail is updated with identifier {{ param }}",
+      "deleted": "A Type Contrat De Travail is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Contrat De Travail {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Contrat De Travail"
+      },
+      "id": "ID",
+      "intTypeContrat": "Int Type Contrat",
+      "description": "Description",
+      "dureeMax": "Duree Max"
+    }
+  }
+}

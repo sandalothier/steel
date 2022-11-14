@@ -1,0 +1,60 @@
+{
+  "angularJSSuffix": "steel",
+  "applications": ["steel"],
+  "changelogDate": "20221114001243",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "societe",
+  "fields": [
+    {
+      "fieldName": "intSociete",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "sigle",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "logo",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "siege",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Societe entity.\\n@author sanda",
+  "jpaMetamodelFiltering": false,
+  "name": "Societe",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employe",
+      "otherEntityRelationshipName": "societe",
+      "relationshipName": "employe",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "typeDocument",
+      "otherEntityRelationshipName": "societe",
+      "relationshipName": "typeDocument",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "succursale",
+      "otherEntityRelationshipName": "societe",
+      "relationshipName": "succursale",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceImpl"
+}

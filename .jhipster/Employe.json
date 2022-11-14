@@ -1,0 +1,86 @@
+{
+  "angularJSSuffix": "steel",
+  "applications": ["steel"],
+  "changelogDate": "20221114001143",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "employe",
+  "fields": [
+    {
+      "fieldName": "sexe",
+      "fieldType": "Sexe",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "MASCULIN,FEMININ"
+    },
+    {
+      "fieldName": "nomActeur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "prenomsActeur",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "dateNaissance",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lieuNaissance",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "situationMatrimoniale",
+      "fieldType": "SituationMatrimoniale",
+      "fieldValues": "MARIE,CELIBATAIRE,CONCUBINAGE,VEUF,DIVORCE"
+    },
+    {
+      "fieldName": "photo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "paysOrigine",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Employe entity.\\n@author sanda\\nCe sont les individus\\nCette table extends la table Acteur",
+  "jpaMetamodelFiltering": false,
+  "name": "Employe",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "diplome",
+      "ownerSide": true,
+      "relationshipName": "codeDiplome",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "adresse",
+      "ownerSide": true,
+      "relationshipName": "cel",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "poste",
+      "otherEntityRelationshipName": "nomActeur",
+      "relationshipName": "poste",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "societe",
+      "otherEntityRelationshipName": "employe",
+      "relationshipName": "societe",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "elasticsearch",
+  "service": "serviceImpl"
+}

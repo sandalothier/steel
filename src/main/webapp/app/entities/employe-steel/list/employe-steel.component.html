@@ -1,0 +1,180 @@
+<div>
+  <h2 id="page-heading" data-cy="EmployeHeading">
+    <span jhiTranslate="steelApp.employe.home.title">Employes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="steelApp.employe.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-employe-steel"
+        [routerLink]="['/employe-steel/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span class="hidden-sm-down" jhiTranslate="steelApp.employe.home.createLabel"> Créer un nouveau Employe </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <form name="searchForm" class="row row-cols-sm-auto align-items-center">
+    <div class="col-sm-12">
+      <div class="input-group w-100 mt-3">
+        <label class="visually-hidden" for="currentSearch" jhiTranslate="steelApp.employe.home.search">Recherche pour Employe</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="currentSearch"
+          id="currentSearch"
+          name="currentSearch"
+          placeholder="{{ 'steelApp.employe.home.search' | translate }}"
+        />
+
+        <button class="btn btn-info" (click)="search(currentSearch)">
+          <fa-icon icon="search"></fa-icon>
+        </button>
+
+        <button class="btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+          <fa-icon icon="trash-alt"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="employes?.length === 0">
+    <span jhiTranslate="steelApp.employe.home.notFound">Aucun Employe trouvé</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="employes && employes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="sexe">
+            <span jhiTranslate="steelApp.employe.sexe">Sexe</span> <fa-icon *ngIf="!currentSearch" icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nomActeur">
+            <span jhiTranslate="steelApp.employe.nomActeur">Nom Acteur</span> <fa-icon *ngIf="!currentSearch" icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prenomsActeur">
+            <span jhiTranslate="steelApp.employe.prenomsActeur">Prenoms Acteur</span> <fa-icon *ngIf="!currentSearch" icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateNaissance">
+            <span jhiTranslate="steelApp.employe.dateNaissance">Date Naissance</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lieuNaissance">
+            <span jhiTranslate="steelApp.employe.lieuNaissance">Lieu Naissance</span> <fa-icon *ngIf="!currentSearch" icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="situationMatrimoniale">
+            <span jhiTranslate="steelApp.employe.situationMatrimoniale">Situation Matrimoniale</span>
+            <fa-icon *ngIf="!currentSearch" icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="photo">
+            <span jhiTranslate="steelApp.employe.photo">Photo</span> <fa-icon *ngIf="!currentSearch" icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="paysOrigine">
+            <span jhiTranslate="steelApp.employe.paysOrigine">Pays Origine</span> <fa-icon *ngIf="!currentSearch" icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="codeDiplome.id">
+            <span jhiTranslate="steelApp.employe.codeDiplome">Code Diplome</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cel.id"><span jhiTranslate="steelApp.employe.cel">Cel</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="societe.id">
+            <span jhiTranslate="steelApp.employe.societe">Societe</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employe of employes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/employe-steel', employe.id, 'view']">{{ employe.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'steelApp.Sexe.' + employe.sexe }}">{{ employe.sexe }}</td>
+          <td>{{ employe.nomActeur }}</td>
+          <td>{{ employe.prenomsActeur }}</td>
+          <td>{{ employe.dateNaissance | formatMediumDate }}</td>
+          <td>{{ employe.lieuNaissance }}</td>
+          <td jhiTranslate="{{ 'steelApp.SituationMatrimoniale.' + employe.situationMatrimoniale }}">
+            {{ employe.situationMatrimoniale }}
+          </td>
+          <td>
+            <a *ngIf="employe.photo" (click)="openFile(employe.photo, employe.photoContentType)">
+              <img [src]="'data:' + employe.photoContentType + ';base64,' + employe.photo" style="max-height: 30px" alt="employe image" />
+            </a>
+            <span *ngIf="employe.photo">{{ employe.photoContentType }}, {{ byteSize(employe.photo) }}</span>
+          </td>
+          <td>{{ employe.paysOrigine }}</td>
+          <td>
+            <div *ngIf="employe.codeDiplome">
+              <a [routerLink]="['/diplome-steel', employe.codeDiplome.id, 'view']">{{ employe.codeDiplome?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employe.cel">
+              <a [routerLink]="['/adresse-steel', employe.cel.id, 'view']">{{ employe.cel?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="employe.societe">
+              <a [routerLink]="['/societe-steel', employe.societe.id, 'view']">{{ employe.societe?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/employe-steel', employe.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/employe-steel', employe.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+              <button type="submit" (click)="delete(employe)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="employes && employes.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

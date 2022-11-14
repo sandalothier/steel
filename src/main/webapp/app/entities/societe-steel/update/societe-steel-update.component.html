@@ -1,0 +1,101 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-societe-steel-heading" data-cy="SocieteCreateUpdateHeading" jhiTranslate="steelApp.societe.home.createOrEditLabel">
+        Créer ou éditer un Societe
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="steelApp.societe.intSociete" for="field_intSociete">Int Societe</label>
+          <input
+            type="text"
+            class="form-control"
+            name="intSociete"
+            id="field_intSociete"
+            data-cy="intSociete"
+            formControlName="intSociete"
+          />
+          <div *ngIf="editForm.get('intSociete')!.invalid && (editForm.get('intSociete')!.dirty || editForm.get('intSociete')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('intSociete')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Ce champ est obligatoire.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('intSociete')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              Ce champ doit faire moins de 25 caractères.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="steelApp.societe.sigle" for="field_sigle">Sigle</label>
+          <input type="text" class="form-control" name="sigle" id="field_sigle" data-cy="sigle" formControlName="sigle" />
+          <div *ngIf="editForm.get('sigle')!.invalid && (editForm.get('sigle')!.dirty || editForm.get('sigle')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('sigle')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              Ce champ doit faire moins de 25 caractères.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="steelApp.societe.logo" for="field_logo">Logo</label>
+          <input type="text" class="form-control" name="logo" id="field_logo" data-cy="logo" formControlName="logo" />
+          <div *ngIf="editForm.get('logo')!.invalid && (editForm.get('logo')!.dirty || editForm.get('logo')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('logo')?.errors?.required" jhiTranslate="entity.validation.required">
+              Ce champ est obligatoire.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('logo')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 25 }"
+            >
+              Ce champ doit faire moins de 25 caractères.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="steelApp.societe.siege" for="field_siege">Siege</label>
+          <input type="text" class="form-control" name="siege" id="field_siege" data-cy="siege" formControlName="siege" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
